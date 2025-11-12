@@ -1,0 +1,313 @@
+@media print {
+  html, body {
+    margin: 0;
+  }
+
+  /* This just removes the screen styling for printing */
+  .invoice-preview {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%; /* Use 100% height for print */
+  }
+}
+
+
+/* --- ADD THESE NEW RULES --- */
+
+/* This tells the main content (header, items) to grow */
+.invoice-content {
+  flex-grow: 1;
+}
+
+/* This tells the footer (totals, signatures) not to shrink */
+.invoice-footer {
+  flex-shrink: 0;
+}
+
+/* --- NEW FOOTER STYLES --- */
+/* Add this to your InvoicePreview.css */
+
+.footer-rule {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+.invoice-footer {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.totals-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 13px; /* Slightly larger */
+}
+
+.totals-left,
+.totals-right {
+  width: 48%; /* Give some space in between */
+}
+
+.totals-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.totals-line span:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+.totals-line span:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+.totals-right .totals-line span:first-child {
+  font-weight: 600; /* Make right side labels bold too */
+}
+
+.totals-right .grand-total {
+  font-weight: bold;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.totals-right .grand-total span {
+  font-weight: 700;
+}
+
+.footer-bottom-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px; /* Space between totals and footer notes */
+  width: 100%;
+}
+
+.footer-notes {
+  width: 55%;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #555;
+}
+
+.footer-notes p {
+  margin: 0 0 5px 0;
+}
+
+.notes-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.notes-list li {
+    margin-bottom: 2px;
+}
+
+/* --- Final Signature Block CSS --- */
+
+.footer-signatures {
+  width: 40%;
+  display: flex;
+  flex-direction: column; /* Stacks the signature-line ON TOP of the system-note */
+  font-size: 12px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* This new container holds "Checked By" and "Received" */
+.signature-line {
+  display: flex;
+  flex-direction: row; /* Lays them out horizontally */
+  justify-content: space-between; /* Spreads them apart */
+  width: 100%; /* Fills the 40% footer-signatures container */
+}
+
+/* Each individual signature block */
+.footer-signatures .signature-block {
+  padding-top: 50px;
+  width: 45%; /* Each block takes up just under half the space */
+  text-align: center;
+}
+
+.footer-signatures .signature-block p {
+  margin: 0;
+}
+
+/* The dotted line */
+.footer-signatures .signature-block p:first-child {
+  border-top: 1px dotted #444;
+  margin: 0 auto 5px auto;
+  padding-top: 5px;
+  color: transparent;
+  user-select: none;
+}
+
+/* The system note, now at the bottom */
+.footer-signatures .system-note {
+  font-size: 10px;
+  color: #777;
+  width: 100%; /* Fills the 40% container */
+  text-align: right; /* Aligns to the bottom-right */
+  margin-top: 50px; /* Space between signatures and this note */
+}
+
+/* --- PAYMENT HISTORY STYLES --- */
+/* (Keep these if you have them, or add them) */
+.payment-history-section {
+  margin-top: 30px;
+  width: 100%;
+}
+.history-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+.payment-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.payment-history-table th,
+.payment-history-table td {
+  border: 1px solid #eee;
+  padding: 6px 8px;
+  text-align: left;
+}
+.payment-history-table th {
+  background-color: #f9f9f9;
+}
+
+
+.invoice-preview {
+  width: 21cm;
+  margin: 1cm auto;
+  padding: 1.2cm;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Arial", sans-serif;
+  color: #333;
+  font-size: 12px;
+
+  /* --- ADD THESE 4 LINES --- */
+  min-height: 26cm; /* Set a fixed height for the A4 page */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.invoice-header img {
+  height: 75px;
+}
+
+.invoice-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.invoice-table th, .invoice-table td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  text-align: right;
+}
+
+.invoice-table th:nth-child(2),
+.invoice-table td:nth-child(2) {
+  text-align: left;
+}
+
+.summary-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.notes-box {
+  width: 55%;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.summary-tables {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-table-left, .summary-table-right {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+
+.summary-table-left td, .summary-table-right td {
+  padding: 5px 8px;
+}
+
+.signature-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.signature-block p:first-child {
+  border-top: 1px solid #444;
+  width: 150px;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
+.system-note {
+  text-align: right;
+  font-size: 10px;
+  color: #777;
+  margin-top: 15px;
+}
+
+/* ADD THIS CODE BLOCK */
+.invoice-details {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+}
+.invoice-details td {
+  padding: 6px 8px;
+  vertical-align: top;
+}
+.invoice-details .label {
+  font-weight: 600;
+  color: #495047;
+  text-align: right;
+  width: 15%;
+  padding-right: 15px;
+}
+.invoice-details .value {
+  text-align: left;
+  width: 35%;
+  word-break: break-word;
+}

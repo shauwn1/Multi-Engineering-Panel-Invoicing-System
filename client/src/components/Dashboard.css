@@ -1,0 +1,177 @@
+/* client/src/components/Dashboard.css */
+.dashboard-container {
+  padding: 0; /* Padding is now on the main-content wrapper */
+}
+
+.dashboard-header {
+  margin-bottom: 25px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #212529;
+  font-weight: 700;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  color: #6c757d;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.stat-card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+  font-size: 28px;
+  padding: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.stat-card.sales-today .stat-icon { background-color: #28a745; }
+.stat-card.sales-month .stat-icon { background-color: #007bff; }
+.stat-card.sales-credit .stat-icon { background-color: #ffc107; }
+
+.stat-info .stat-title {
+  margin: 0;
+  font-size: 15px;
+  color: #6c757d;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stat-info .stat-value {
+  margin: 5px 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #212529;
+}
+
+.stat-info .stat-count {
+  margin: 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.chart-container {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+.chart-container h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.chart-container.large-chart {
+  min-height: 400px;
+}
+
+.recent-invoices-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.recent-invoices-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 5px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-invoices-list li:last-child {
+  border-bottom: none;
+}
+
+.recent-invoices-list .invoice-icon {
+  font-size: 20px;
+}
+.recent-invoices-list .icon-paid { color: #28a745; }
+.recent-invoices-list .icon-partial { color: #ffc107; }
+.recent-invoices-list .icon-unpaid { color: #dc3545; }
+
+.recent-invoices-list .invoice-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.recent-invoices-list .invoice-link {
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.recent-invoices-list .invoice-link:hover {
+  text-decoration: underline;
+}
+
+.recent-invoices-list .invoice-customer {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.recent-invoices-list .invoice-amount {
+  font-weight: 600;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 15px;
+}
+
+.no-invoices-msg {
+  color: #6c757d;
+  text-align: center;
+  padding: 20px 0;
+}

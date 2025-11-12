@@ -1,0 +1,160 @@
+/* client/src/components/dispatchNotePreview.css */
+
+.dispatch-preview {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
+
+.dispatch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.dispatch-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.dispatch-header p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.dispatch-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000;
+  margin: 30px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dispatch-details {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.dispatch-details td {
+  padding: 8px 10px;
+  vertical-align: top;
+}
+
+.dispatch-details .label {
+  font-weight: 600;
+  color: #495057;
+  text-align: left;
+  width: 15%;
+}
+
+.dispatch-details .value {
+  text-align: left;
+  width: 35%;
+}
+
+.dispatch-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.dispatch-items-table thead {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.dispatch-items-table th {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.dispatch-items-table tbody tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.dispatch-items-table tbody tr:last-child {
+  border-bottom: 2px solid #343a40;
+}
+
+.dispatch-items-table td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+.dispatch-items-table th:nth-child(1),
+.dispatch-items-table td:nth-child(1) {
+  width: 5%;
+}
+.dispatch-items-table th:nth-child(2) {
+  width: 70%;
+}
+.dispatch-items-table th:nth-child(3) {
+  width: 25%;
+  text-align: right;
+}
+.dispatch-items-table td:nth-child(3) {
+  text-align: right;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-weight: 600;
+}
+
+.dispatch-note-section {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+}
+
+.dispatch-note-section .label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+}
+
+.dispatch-note-section .value {
+  font-size: 1rem;
+  color: #333;
+  white-space: pre-wrap;
+  min-height: 50px;
+}
+
+.dispatch-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+}
+
+.dispatch-footer-block {
+  text-align: center;
+  width: 40%;
+}
+
+.dispatch-footer-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.dispatch-footer-block p:first-child {
+  border-top: 1px solid #777;
+  padding-top: 8px;
+}

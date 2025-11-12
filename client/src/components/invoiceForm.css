@@ -1,0 +1,232 @@
+.form-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h2,
+.form-container h3 {
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.form-section {
+  margin-bottom: 25px;
+}
+
+.form-container label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container input[type="date"],
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.form-container input[readonly] {
+  background-color: #f1f1f1;
+  cursor: not-allowed;
+}
+
+.form-container textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.items-entry-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.items-entry-table thead {
+  background-color: #495057;
+  color: white;
+}
+
+.items-entry-table th {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.items-entry-table td {
+  padding: 8px;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.items-entry-table input,
+.items-entry-table select {
+  padding: 8px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+}
+
+.items-entry-table th:nth-child(2),
+.items-entry-table td:nth-child(2) { width: 15%; }
+.items-entry-table th:nth-child(3),
+.items-entry-table td:nth-child(3) { width: 10%; text-align: right; }
+.items-entry-table th:nth-child(4),
+.items-entry-table td:nth-child(4) { width: 15%; text-align: right; }
+.items-entry-table th:nth-child(5),
+.items-entry-table td:nth-child(5) { width: 15%; text-align: right; }
+.items-entry-table th:nth-child(6),
+.items-entry-table td:nth-child(6) { width: 10%; text-align: center; }
+
+.remove-item-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+.remove-item-btn:hover {
+  background-color: #c82333;
+}
+
+.add-item-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: background-color 0.2s;
+}
+.add-item-btn:hover {
+  background-color: #0069d9;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.totals-box {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 25px;
+  margin-top: 25px;
+}
+
+.totals-box p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin: 12px 0;
+  color: #495057;
+}
+
+.totals-box p span:last-child {
+  font-weight: 600;
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #212529;
+}
+
+.totals-box .total-highlight {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+.totals-box .total-highlight span:last-child {
+  color: #007bff;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 30px;
+}
+
+.action-buttons button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-save {
+  background-color: #28a745;
+  color: white;
+}
+.btn-save:hover {
+  background-color: #218838;
+}
+
+.btn-print {
+  background-color: #17a2b8;
+  color: white;
+}
+.btn-print:hover {
+  background-color: #138496;
+}
+
+.btn-download {
+  background-color: #6c757d;
+  color: white;
+}
+.btn-download:hover {
+  background-color: #5a6268;
+}
+
+.invoice-preview-wrapper {
+  margin-top: 30px;
+  border: 1px dashed #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.hidden-print {
+  display: none;
+}

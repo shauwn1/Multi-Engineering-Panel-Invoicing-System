@@ -1,0 +1,13 @@
+# Node.js
+node_modules/
+
+# Vite build output
+dist/
+
+# Environment variables
+.env
+.env.local
+
+# IDE & OS files
+.vscode/
+.DS_Store

@@ -1,0 +1,114 @@
+/* client/src/components/creditInvoicesList.css */
+
+.list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.list-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.total-outstanding-box {
+  background-color: #fff4e6;
+  border: 1px solid #ffe8cc;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d9534f;
+}
+
+.total-outstanding-box span {
+  color: #555;
+  margin-right: 10px;
+}
+
+.no-data-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6c757d;
+  padding: 40px 0;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.styled-table thead {
+  background-color: #343a40;
+  color: white;
+}
+
+.styled-table th {
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dee2e6;
+  transition: background-color 0.2s;
+}
+
+.styled-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.styled-table td {
+  padding: 15px 18px;
+  vertical-align: middle;
+}
+
+.styled-table .amount-cell {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-weight: 600;
+  color: #c9302c;
+  text-align: right;
+  font-size: 1.05rem;
+}
+
+.styled-table .action-cell {
+  text-align: center;
+}
+
+.btn-pay {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-pay:hover {
+  background-color: #218838;
+}
