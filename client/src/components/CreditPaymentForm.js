@@ -80,7 +80,7 @@ const CreditPaymentForm = () => {
       };
 
       try {
-        const res = await fetch(`http://localhost:5000/api/invoices/${invoiceId}`, { headers });
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/invoices/${invoiceId}`, { headers });
         
         if (res.status === 401) {
             localStorage.removeItem('userInfo');
@@ -125,7 +125,7 @@ const CreditPaymentForm = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/payments", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/payments`,{
         method: "POST",
         headers: { 
           "Content-Type": "application/json",

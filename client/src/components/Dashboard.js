@@ -72,11 +72,11 @@ const Dashboard = () => {
 
             try {
                 const [statsRes, lineChartRes, statusChartRes, recentInvoicesRes] = await Promise.all([
-                    fetch('http://localhost:5000/api/invoices/stats', { headers }),
-                    fetch('http://localhost:5000/api/invoices/sales/over-time', { headers }),
-                    fetch('http://localhost:5000/api/invoices/stats/status', { headers }),
-                    fetch('http://localhost:5000/api/invoices?sort=date&limit=5', { headers })
-                ]);
+    fetch(`${process.env.REACT_APP_API_URL}/api/invoices/stats`, { headers }),
+    fetch(`${process.env.REACT_APP_API_URL}/api/invoices/sales/over-time`, { headers }),
+    fetch(`${process.env.REACT_APP_API_URL}/api/invoices/stats/status`, { headers }),
+    fetch(`${process.env.REACT_APP_API_URL}/api/invoices?sort=date&limit=5`, { headers })
+]);
 
                 if ([statsRes, lineChartRes, statusChartRes, recentInvoicesRes].some(res => res.status === 401)) {
                     localStorage.removeItem('userInfo');

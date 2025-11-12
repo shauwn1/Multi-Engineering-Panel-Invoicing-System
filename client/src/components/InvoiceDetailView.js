@@ -30,8 +30,8 @@ const InvoiceDetailView = () => {
             };
 
             try {
-                const invoiceRes = await fetch(`http://localhost:5000/api/invoices/${invoiceId}`, { headers });
-                const historyRes = await fetch(`http://localhost:5000/api/payments/history/${invoiceId}`, { headers });
+                const invoiceRes = await fetch(`${process.env.REACT_APP_API_URL}/api/invoices/${invoiceId}`, { headers });
+                const historyRes = await fetch(`${process.env.REACT_APP_API_URL}/api/payments/history/${invoiceId}`, { headers });
 
                 if (invoiceRes.status === 401 || historyRes.status === 401) {
                     localStorage.removeItem('userInfo');

@@ -35,8 +35,8 @@ const DispatchNoteView = () => {
         try {
             const [invoiceRes, dispatchRes] = await Promise.all([
                 // 👇 5. Add headers to fetch
-                fetch(`http://localhost:5000/api/invoices/${invoiceId}`, { headers }),
-                fetch(`http://localhost:5000/api/dispatch/by-invoice/${invoiceId}`, { headers })
+                fetch(`${process.env.REACT_APP_API_URL}/api/invoices/${invoiceId}`, { headers }),
+                fetch(`${process.env.REACT_APP_API_URL}/api/dispatch/by-invoice/${invoiceId}`, { headers })
             ]);
 
             // 👇 6. Add error handling for BOTH requests
@@ -85,7 +85,7 @@ const DispatchNoteView = () => {
         }
 
         try {
-            const res = await fetch(`http://localhost:5000/api/dispatch`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/api/dispatch`, {
                 method: 'POST',
                 // 👇 9. Add headers to save
                 headers: { 

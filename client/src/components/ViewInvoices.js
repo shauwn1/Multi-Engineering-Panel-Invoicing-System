@@ -59,7 +59,7 @@ const ViewInvoices = () => {
     if (endDate) params.append('endDate', endDate);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/invoices?${params.toString()}`, { headers });
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/invoices?${params.toString()}`, { headers });
 
       if (res.status === 401) {
           localStorage.removeItem('userInfo');

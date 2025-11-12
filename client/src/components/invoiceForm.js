@@ -68,7 +68,7 @@ const InvoiceForm = () => {
     const fetchInvoiceNo = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/invoices/last-invoice-number", {
+  `${process.env.REACT_APP_API_URL}/api/invoices/last-invoice-number`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -182,7 +182,7 @@ const InvoiceForm = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/invoices", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/invoices`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
