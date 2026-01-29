@@ -33,6 +33,11 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true); 
             // No need to navigate here, App component will handle redirection
 
+            if (data.role === 'customer') {
+        navigate('/customer-dashboard');
+    } else {
+        navigate('/'); // Admin goes to Dashboard
+    }
         } catch (err) {
             setError(err.message);
         }
@@ -64,6 +69,9 @@ const Login = ({ setIsAuthenticated }) => {
                     />
                 </div>
                 <button type="submit" className="login-button">Login</button>
+<p style={{marginTop: '15px'}}>
+   New Customer? <Link to="/register">Register here</Link>
+</p>
             </form>
         </div>
     );

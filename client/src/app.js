@@ -17,6 +17,8 @@ import {
   FaFileAlt, 
   FaSignOutAlt 
 } from 'react-icons/fa';
+import CustomerRegister from "./components/CustomerRegister.js";
+import CustomerDashboard from "./components/CustomerDashboard.js";
 
 const ProtectedRoute = ({ isAuthenticated, children }) => {
   if (!isAuthenticated) {
@@ -28,6 +30,14 @@ const ProtectedRoute = ({ isAuthenticated, children }) => {
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('userInfo'));
 
+  // Helper to check role
+  const getUserRole = () => {
+    const info = localStorage.getItem('userInfo');
+    return info ? JSON.parse(info).role : null;
+  };
+
+  const role = getUserRole();
+
   const handleLogout = () => {
     localStorage.removeItem('userInfo');
     setIsAuthenticated(false);
@@ -37,14 +47,27 @@ const App = () => {
     return (
       <BrowserRouter>
         <Routes>
-          <Route 
-            path="/login" 
-            element={<Login setIsAuthenticated={setIsAuthenticated} />} 
-          />
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/register" element={<CustomerRegister setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
     );
+  }
+
+  // CUSTOMER LAYOUT
+  if (role === 'customer') {
+     return (
+        <BrowserRouter>
+            <Routes>
+                <Route 
+  path="/customer-dashboard" 
+  element={<CustomerDashboard onLogout={handleLogout} />} 
+/>
+                <Route path="*" element={<Navigate to="/customer-dashboard" replace />} />
+            </Routes>
+        </BrowserRouter>
+     );
   }
 
   return (

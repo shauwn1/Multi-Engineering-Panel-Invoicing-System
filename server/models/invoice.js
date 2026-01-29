@@ -18,7 +18,11 @@ const invoiceSchema = new mongoose.Schema(
     invoiceNo: { type: String, required: true, unique: true },
     customerName: { type: String, required: true },
     customerAddress: { type: String },
-
+    customerId: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: "User",
+        default: null 
+    },
     // ✅ Newly added fields
     telephone: { type: String }, // Optional but allows contact details
     email: { type: String, match: /.+\@.+\..+/ }, // Regex ensures valid email format
