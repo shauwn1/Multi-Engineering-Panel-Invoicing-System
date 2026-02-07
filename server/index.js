@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const path = require("path"); 
 require("dotenv").config();
 
 const invoiceRoutes = require("./routes/invoiceRoutes.js");
@@ -10,9 +9,12 @@ const dispatchRoutes = require("./routes/dispatchRoutes.js");
 const authRoutes = require('./routes/authRoutes.js');
 
 const app = express();
+
+// Add your Frontend URL here so the frontend can talk to the backend
 const allowedOrigins = [
-  'http://localhost:3000',
-  process.env.FRONTEND_URL 
+  'http://localhost:3000',      // Local React
+  'http://localhost:5173',      // Local Vite
+  process.env.FRONTEND_URL      // Your Render Frontend URL (e.g. https://multi-engineering-panel-invoicing-system-1.onrender.com)
 ];
 
 app.use(cors({
@@ -25,6 +27,7 @@ app.use(cors({
     return callback(null, true);
   }
 }));
+
 app.use(express.json());
 
 async function startServer() {
@@ -32,19 +35,15 @@ async function startServer() {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ MongoDB Connected");
 
-    // API Routes
     app.use("/api/invoices", invoiceRoutes);
     app.use("/api/payments", paymentRoutes);
     app.use("/api/dispatch", dispatchRoutes);
     app.use('/api/auth', authRoutes);
 
-    // Change 'client/build' to 'client/dist' here:
-app.use(express.static(path.join(__dirname, '../client/dist'))); 
-
-// And change it here too:
-app.get(/(.*)/, (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
-});
+    // Simple root route to check if API is alive
+    app.get('/', (req, res) => {
+      res.send('API is running successfully');
+    });
     
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
