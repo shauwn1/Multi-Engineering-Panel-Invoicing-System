@@ -131,7 +131,28 @@ router.get("/", async (req, res) => {
     }
 });
 
+// GET MY INVOICES (For Customers)
+router.get("/my-invoices", async (req, res) => {
+    try {
+        // req.user is set by authMiddleware
+        const user = req.user;
+        
+        if (!user) return res.status(401).json({ error: "Not authorized" });
 
+        // Search logic: Find invoices linked by ID OR by Phone number
+        const query = {
+            $or: [
+                { customerId: user._id },
+                { telephone: user.phone } // Auto-link if phone matches!
+            ]
+        };
+
+        const invoices = await Invoice.find(query).sort({ date: -1 });
+        res.json(invoices);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to fetch invoices" });
+    }
+});
 
 router.get("/:id", async (req, res) => {
     try {
@@ -213,27 +234,6 @@ router.get("/stats/status", async (req, res) => {
     }
 });
 
-// GET MY INVOICES (For Customers)
-router.get("/my-invoices", async (req, res) => {
-    try {
-        // req.user is set by authMiddleware
-        const user = req.user;
-        
-        if (!user) return res.status(401).json({ error: "Not authorized" });
 
-        // Search logic: Find invoices linked by ID OR by Phone number
-        const query = {
-            $or: [
-                { customerId: user._id },
-                { telephone: user.phone } // Auto-link if phone matches!
-            ]
-        };
-
-        const invoices = await Invoice.find(query).sort({ date: -1 });
-        res.json(invoices);
-    } catch (error) {
-        res.status(500).json({ error: "Failed to fetch invoices" });
-    }
-});
 
 module.exports = router;

@@ -38,6 +38,12 @@ async function startServer() {
     app.use("/api/payments", paymentRoutes);
     app.use("/api/dispatch", dispatchRoutes);
     app.use('/api/auth', authRoutes);
+
+    app.use(express.static(path.join(__dirname, '../client/build')));
+    
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    });
     
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
