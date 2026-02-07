@@ -1,5 +1,6 @@
 // client/src/components/Login.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // 👈 Add this line
 import './Login.css'; // We'll create this next
 
 // Pass setIsAuthenticated function down as a prop
