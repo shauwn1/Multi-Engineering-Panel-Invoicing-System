@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const path = require("path"); // 👈 THIS WAS MISSING
+const path = require("path"); 
 require("dotenv").config();
 
 const invoiceRoutes = require("./routes/invoiceRoutes.js");
@@ -32,15 +32,17 @@ async function startServer() {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ MongoDB Connected");
 
+    // API Routes
     app.use("/api/invoices", invoiceRoutes);
     app.use("/api/payments", paymentRoutes);
     app.use("/api/dispatch", dispatchRoutes);
     app.use('/api/auth', authRoutes);
 
-    // Now 'path' is defined, so this will work:
+    // Serve Frontend
     app.use(express.static(path.join(__dirname, '../client/build')));
     
-    app.get('*', (req, res) => {
+    
+    app.get(/(.*)/, (req, res) => {
       res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
     });
     
