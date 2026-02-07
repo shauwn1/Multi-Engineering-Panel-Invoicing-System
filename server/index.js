@@ -38,13 +38,13 @@ async function startServer() {
     app.use("/api/dispatch", dispatchRoutes);
     app.use('/api/auth', authRoutes);
 
-    // Serve Frontend
-    app.use(express.static(path.join(__dirname, '../client/build')));
-    
-    
-    app.get(/(.*)/, (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-    });
+    // Change 'client/build' to 'client/dist' here:
+app.use(express.static(path.join(__dirname, '../client/dist'))); 
+
+// And change it here too:
+app.get(/(.*)/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
     
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
